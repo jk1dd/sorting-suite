@@ -1,17 +1,19 @@
 var pry = require('pryjs');
 
 function bubbSort(arr) {
-  var n = arr.length
-  var swapped = false
+  do {
+    var swapped = false
 
-  for(i = 0; i < n; i++) {
-    if (arr[i] > arr[i+1]) {
-      arr[i] = arr[i+1];
-      arr[i+1] = arr[i];
-      var swapped = true
-      eval(pry.it);
+    for(i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i+1]) {
+        var change = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = change;
+        swapped = true;
+        // eval(pry.it);
+      }
     }
-  }
+  } while (swapped === true);
   return arr
   // break when swapped = false?
   // return the mutated array
